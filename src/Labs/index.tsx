@@ -7,7 +7,6 @@ export default function Labs() {
   return (
     <div>
       <h1>Tanvi Atul Deshpande</h1>
-      <h2>Section: 02 | CRN: 20595</h2>
       <h1>Labs</h1>
       <TOC />
       <Routes>
