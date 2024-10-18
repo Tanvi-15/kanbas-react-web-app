@@ -6,35 +6,26 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
     padding-left: 140px !important;
   }
 }
-.course-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adds some space between the cards */
-    justify-content: flex-start; /* Align cards to the start */
-  }
-  
-  .wd-dashboard-course {
-    flex: 1 1 300px; /* Flex-grow, flex-shrink, and the base width */
-    max-width: 300px;
-    margin: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .wd-dashboard-course {
-      flex: 1 1 100%; /* On smaller screens, the cards will take full width */
-    }
-  }
-  
-  @media (max-width: 1024px) {
-    .wd-dashboard-course {
-      flex: 1 1 calc(50% - 40px); /* 50% width for medium-sized screens */
-    }
-  }
 
-  .list-group.wd > .list-group-item.active {
-    color: black;
-    background-color: white;
-    border-left: 3px solid black !important;
-  }
-  
-  
+
+.list-group.wd > .list-group-item.active {
+  color: black;
+  background-color: white;
+  border-left: 3px solid black !important;
+}
+
+.btn-secondary {
+  --bs-btn-color: #000 !important;
+  --bs-btn-bg: #c7cdd1 !important;
+  --bs-btn-border-color: #c7cdd1 !important;
+  --bs-btn-hover-color: #fff !important;
+}
+.bg-secondary {
+  --bs-secondary-rgb: 199, 205, 209;
+}
+.list-group-item {
+  --bs-list-group-border-color: gray;
+}
+.wd-lesson {
+  border-left: 3px solid green !important;
+}

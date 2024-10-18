@@ -1,62 +1,31 @@
-import { Link } from "react-router-dom";
-export default function CoursesNavigation() {
+import React from "react";
+import { NavLink, useParams, useLocation } from "react-router-dom";
+
+export default function Navigation() {
+  const { cid } = useParams();
+  const location = useLocation();
+
+  const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
+
   return (
-    <div className="wd list-group rounded-0" id="wd-courses-navigation">
-      <Link
-        className="list-group-item active border-0"
-        to="/Kanbas/Courses/1234/Home"
-      >
-        Home
-      </Link>
-
-      <Link
-        className="list-group-item  border-0 text-danger"
-        to="/Kanbas/Courses/1234/Modules"
-      >
-        Modules
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/Piazza"
-      >
-        Piazza
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/Zoom"
-      >
-        Zoom
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/Assignments"
-      >
-        Assignments
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/Quizzes"
-      >
-        Quizzes
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/Grades"
-      >
-        Grades
-      </Link>
-
-      <Link
-        className="list-group-item border-0 text-danger"
-        to="/Kanbas/Courses/1234/People"
-      >
-        People
-      </Link>
+    <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
+      {links.map((link) => {
+        // const path = `/Kanbas/Courses/${cid}/${link}`;
+        return (
+          <NavLink
+            key={link}
+            to={`/Kanbas/Courses/${cid}/${link}`}
+            id={`wd-course-${link.toLowerCase()}-link`}
+            className={({ isActive }) =>
+              isActive || location.pathname.includes(link)
+                ? "list-group-item border border-0 active text-black"
+                : "list-group-item text-danger border border-0"
+            }
+          >
+            {link}
+          </NavLink>
+        );
+      })}
     </div>
   );
 }

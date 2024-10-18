@@ -3,6 +3,7 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import { Routes, Route, Navigate } from "react-router";
 import AccountNavigation from "./Navigation";
+import React from "react";
 
 export default function Account() {
   return (
