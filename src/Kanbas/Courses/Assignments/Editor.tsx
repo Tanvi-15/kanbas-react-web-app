@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { assignments } from "../../Database";
+import React from "react";
 
 export default function AssignmentEditor() {
   const { cid,aid } = useParams();

@@ -5,6 +5,7 @@ import AssignmentControlButtons from "./AssignmentControlButtons";
 import { Link, useParams} from "react-router-dom";
 import * as db from "../../Database";
 import ControlButtons from "./ControlButtons";
+import React from "react";
 
 export default function Assignments() {
   const { cid } = useParams();
