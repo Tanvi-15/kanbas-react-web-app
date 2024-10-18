@@ -4,7 +4,7 @@ import Courses from "./Courses";
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import PeopleTable from "./Courses/People/Table";
-import "./Styles.css";
+import "Styles.css";
 
 export default function Kanbas() {
   return (
