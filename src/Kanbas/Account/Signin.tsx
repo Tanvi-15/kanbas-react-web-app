@@ -1,7 +1,21 @@
-import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { setCurrentUser } from "./reducer";
+import { useDispatch } from "react-redux";
+import * as db from "../Database";
 
 export default function Signin() {
+  const [credentials, setCredentials] = useState<any>({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const signin = () => {
+    const user = db.users.find(
+      (u: any) => u.username === credentials.username && u.password === credentials.password
+    );
+    if (!user) return;
+    dispatch(setCurrentUser(user));
+    navigate("/Kanbas/Dashboard");
+  };
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
@@ -12,24 +26,29 @@ export default function Signin() {
             <div className="mb-3">
               <label htmlFor="username" className="form-label">Username</label>
               <input
-                type="text"
-                className="form-control"
-                id="username"
+                value={credentials.username}
+                onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+                id="wd-username"
                 placeholder="username"
+                className="form-control mb-2"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">Password</label>
               <input
-                type="password"
-                className="form-control"
-                id="password"
+                id="wd-password"
                 placeholder="password"
+                type="password"
+                className="form-control mb-2"
+                defaultValue={credentials.password}
+                onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100">Signin</button>
+            <button onClick={signin} id="wd-signin-btn" className="btn btn-primary w-100">
+              Sign in
+            </button>
           </form>
-          <Link to="/Kanbas/Account/Signup" className="d-block text-center mt-3">
+          <Link id="wd-signup-link" to="/Kanbas/Account/Signup">
             Signup
           </Link>
         </div>

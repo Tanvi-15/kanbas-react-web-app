@@ -2,14 +2,16 @@ import { BsGripVertical } from "react-icons/bs";
 import AssignmentsControls from "./AssignmentsControls";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import AssignmentControlButtons from "./AssignmentControlButtons";
-import { Link, useParams} from "react-router-dom";
-import * as db from "../../Database";
 import ControlButtons from "./ControlButtons";
-import React from "react";
+import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
+  const { assignments } = useSelector((state: any) => state.assignmentReducer);
+
+  console.log(assignments);
+
   return (
     <div>
       <AssignmentsControls />
@@ -46,18 +48,19 @@ export default function Assignments() {
                       <div className="module-info text-muted">
                         <span className="text-danger">Multiple Modules</span> |
                         <span>
-                          {" "}
-                          <b>Not available until May 6 at 12:00am</b>
-                        </span>{" "}
+                          <b>
+                            Not available until {assignment.availableFrom ?? "May 6 at 12:00am"}
+                          </b>
+                        </span>
                         |<br />
                         <span>
-                          <b>Due</b> May 13 at 11:59pm
-                        </span>{" "}
-                        |<span> 100 pts</span>
+                          <b>Due</b> {assignment.dueDate ?? " May 13 at 11:59pm"}
+                        </span>
+                        |<span> {assignment.points ?? "100"} pts</span>
                       </div>
                     </div>
                     <div className="col-md-2 text-end">
-                      <AssignmentControlButtons />
+                      <AssignmentControlButtons assignmentId={assignment._id} />
                     </div>
                   </div>
                 </li>
