@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router";
-import "./styles.css";
 import Account from "./Account";
 import Courses from "./Courses";
 import Dashboard from "./Dashboard";
@@ -10,6 +9,7 @@ import ProtectedRoute from "./Account/ProtectedRoute";
 import CourseProtectedRoute from "./Courses/ProtectedRoute"
 import { enrollCourse } from "./EnrollmentReducer";
 import { useDispatch, useSelector } from "react-redux";
+import "./styles/style.css";
 
 export default function Kanbas() {
   const dispatch = useDispatch();
