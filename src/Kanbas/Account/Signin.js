@@ -19,7 +19,15 @@ export default function Signin() {
   };
 
   return (
-    <div id="wd-signin-screen">
+    <div id="wd-signin-screen"
+    style={{
+      height: "100vh",
+      // display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginLeft: "500px",
+      marginTop: "100px",
+    }}>
       <h3>Sign in</h3>
       <input
         // defaultValue={credentials.username}

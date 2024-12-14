@@ -13,7 +13,15 @@ export default function Signup() {
     navigate("/Kanbas/Account/Profile");
   };
   return (
-    <div className="wd-signup-screen">
+    <div className="wd-signup-screen"
+    style={{
+      height: "100vh",
+      // display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginLeft: "500px",
+      marginTop: "100px",
+    }}>
       <h1>Sign up</h1>
       <input
         value={user.username}

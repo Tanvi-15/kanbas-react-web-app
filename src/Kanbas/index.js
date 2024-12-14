@@ -11,6 +11,7 @@ import ProtectedRoute from "./Account/ProtectedRoute";
 import * as userClient from "./Account/client";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import "./styles/style.css";
 
 export default function Kanbas() {
   const initialCourseState = {

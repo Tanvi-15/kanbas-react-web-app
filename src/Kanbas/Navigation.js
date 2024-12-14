@@ -27,7 +27,7 @@ export default function KanbasNavigation() {
         href="https://www.northeastern.edu/"
         className="list-group-item bg-black border-0 text-center"
       >
-        <img src="/images/neu.png" width="75px" alt="Northeastern University Logo" />
+        <img src="https://www.academicimpressions.com/wp-content/uploads/2021/08/NU_MonoNU_RGB_RB.png" width="75px" alt="Northeastern University Logo" />
       </a>
       <Link
         to="/Kanbas/Account"
